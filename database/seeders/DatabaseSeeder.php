@@ -21,8 +21,8 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
-            payment_methods::class,
-            payment_method_options::class,
+            PaymentMethodOptionsTableSeeder::class,
+            PaymentMethodsTableSeeder::class,
         ]);
     }
 }

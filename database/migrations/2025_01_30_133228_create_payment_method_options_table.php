@@ -13,15 +13,10 @@ return new class extends Migration
     {
         Schema::create('payment_method_options', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('payment_method_id');
+            $table->foreignId('payment_method_id')->constrained('payment_methods');
             $table->string('key', 50);
             $table->string('value', 100);
             $table->timestamps();
-
-            $table->foreign('payment_method_id')
-                ->references('id')
-                ->on('payment_methods')
-                ->onDelete('cascade');
         });
     }
 

@@ -2,13 +2,15 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 
 class PaymentMethodOption extends Model
 {
-    public static function payOptions()
+    use HasFactory;
+
+    public function paymentMethod()
     {
-        return DB::table('payment_methods')->select('*')->get();
+        return $this->belongsTo(PaymentMethod::class);
     }
 }
